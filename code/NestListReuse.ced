@@ -1,0 +1,31 @@
+import Nat.
+import List.
+import VecL.
+import Vec.
+import IdCoe.
+import NestIdCoe.
+import ListDefs.
+import ListReuse.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+concatV ◂ ∀ A : ★ . ∀ n : Nat . ∀ m : Nat .
+  Vec · (Vec · A n) m ➔ Vec · A (mult m n)
+  = Λ A . Λ n . Λ m . λ xss .
+  ρ (v2u · (Vec · A n) -m xss).2 -
+  ρ (lengthDistConcat · A -n (v2u-v2l · A -n -m xss)) -
+  (l2v · A (concatL · A (v2l-v2l · A -n -m xss))) .
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+concatDistAppendV ◂ ∀ A : ★ .
+  ∀ n1 : Nat . ∀ m1 : Nat . Π xss : Vec · (Vec · A n1) m1 .
+  ∀ n2 : Nat . ∀ m2 : Nat . Π yss : Vec · (Vec · A n2) m2 .
+  appendV (concatV xss) (concatV yss) ≃ concatV (appendV xss yss)
+  = Λ A . Λ n1 . Λ m1 . λ xss . Λ n2 . Λ m2 . λ yss .
+  concatDistAppendL · A
+    (v2l-v2l · A -n1 -m1 xss)
+    (v2l-v2l · A -n2 -m2 yss) .
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

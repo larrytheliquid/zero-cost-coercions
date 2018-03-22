@@ -1,0 +1,35 @@
+import Nat.
+import List.
+import VecL.
+import Vec.
+import IdCoe.
+import ListDefs.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+appendV ◂ ∀ A : ★ .
+  ∀ n : Nat . Vec · A n ➔
+  ∀ m : Nat . Vec · A m ➔
+  Vec · A (add n m)
+  = Λ A . Λ n . λ xs . Λ m . λ ys .
+  ρ (v2u · A -n xs).2 -
+  ρ (v2u · A -m ys).2 -
+  ρ (lengthDistAppend · A (v2u · A -n xs).1 (v2u · A -m ys).1) -
+  (l2v · A
+    (appendL · A (v2u · A -n xs).1 (v2u · A -m ys).1)) .
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+appendAssocV ◂ ∀ A : ★ .
+  ∀ n : Nat . Π xs : Vec · A n .
+  ∀ m : Nat . Π ys : Vec · A m .
+  ∀ o : Nat . Π zs : Vec · A o .
+  appendV (appendV xs ys) zs ≃ appendV xs (appendV ys zs)
+  = Λ A . Λ n . λ xs . Λ m . λ ys . Λ o . λ zs .
+  appendAssocL · A
+    (v2l · A -n xs)
+    (v2l · A -m ys)
+    (v2l · A -o zs) .
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
