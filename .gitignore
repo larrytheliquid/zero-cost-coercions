@@ -18,4 +18,5 @@ Default
 _TZ_*
 *.dvi
 *.ps
+*.out
 html
