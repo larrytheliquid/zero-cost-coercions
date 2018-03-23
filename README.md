@@ -23,3 +23,9 @@ Code from the paper
   * [Definitions (including nested)](code/ListDefs.ced)
   * [Reuse](code/ListReuse.ced)
   * [Nested Reuse](code/NestListReuse.ced)
+
+Cedille Language
+----------------
+
+Download and unpack the [Cedille prerelease](http://cs.uiowa.edu/~astump/cedille-prerelease.zip),
+then follow INSTALL.txt in `cedille-prerelease` for installation instructions.
