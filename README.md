@@ -5,6 +5,11 @@ Cedille code accompanying the paper draft
 ([available on arXiv](https://arxiv.org/pdf/1802.00787.pdf)) 
 authored by Larry Diehl and Aaron Stump.
 
+We have also developed a [generic version](https://github.com/larrytheliquid/generic-reuse) 
+of this development,
+where identity functions are defined via propositional equality, 
+rather than definitional equality.
+
 Code from the paper
 -------------------
 
